@@ -1,7 +1,8 @@
 -- =====================================
--- FRENOX HUB | ENGLISH CLEAN EDITION
+-- FRENOX HUB | MAIN SCRIPT (ENGLISH)
 -- =====================================
 
+-- [ AUTO-COPY DISCORD ]
 setclipboard("https://discord.gg/f64xr79Bjy") 
 
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
@@ -18,7 +19,7 @@ local Window = Rayfield:CreateWindow({
     Theme = "DarkBlue" 
 })
 
--- SCRIPT DATABASE
+-- [ DATABASE FOR SMART SEARCH ]
 local ScriptDatabase = {
     ["blox fruit"] = "https://rawscripts.net/raw/Control-Blox-Fruits-OP-FREE-GUI-77953",
     ["bloxfruits"] = "https://rawscripts.net/raw/Control-Blox-Fruits-OP-FREE-GUI-77953",
@@ -41,7 +42,7 @@ local ScriptDatabase = {
     ["dex"] = "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"
 }
 
--- TABS
+-- [ TABS INITIALIZATION ]
 local HomeTab = Window:CreateTab("Home", "home")             
 local SearchTab = Window:CreateTab("Script Search", "search") 
 local UniversalTab = Window:CreateTab("Universal", "settings-2") 
@@ -68,9 +69,12 @@ HomeTab:CreateParagraph({Title = "Welcome User:", Content = Player.Name})
 HomeTab:CreateParagraph({Title = "Status:", Content = "Rank [" .. UserRole .. "]"})
 HomeTab:CreateSection("Official Credits")
 HomeTab:CreateParagraph({Title = "Founder & Lead Developer", Content = "Sevi (@Sevi)"})
-HomeTab:CreateButton({Name = "Copy Discord Link", Callback = function() setclipboard("https://discord.gg/f64xr79Bjy") end})
+HomeTab:CreateButton({
+   Name = "Copy Discord Link",
+   Callback = function() setclipboard("https://discord.gg/f64xr79Bjy") end,
+})
 
--- 2. SCRIPT SEARCH (SMART)
+-- 2. SMART SEARCH
 SearchTab:CreateSection("Smart Search & Executor")
 local SearchQuery = ""
 SearchTab:CreateInput({
@@ -85,12 +89,11 @@ SearchTab:CreateButton({
        if SearchQuery ~= "" then
            if SearchQuery:find("loadstring") or SearchQuery:find("http") then
                loadstring(SearchQuery)()
-               Rayfield:Notify({Title = "Frenox Hub", Content = "Custom Code Executed!", Duration = 3})
            elseif ScriptDatabase[SearchQuery] then
                loadstring(game:HttpGet(ScriptDatabase[SearchQuery]))()
-               Rayfield:Notify({Title = "Frenox Hub", Content = "Script found for: " .. SearchQuery, Duration = 3})
+               Rayfield:Notify({Title = "Frenox Hub", Content = "Running script for: " .. SearchQuery, Duration = 3})
            else
-               Rayfield:Notify({Title = "Error", Content = "Script not found in database.", Duration = 3})
+               Rayfield:Notify({Title = "Error", Content = "Game not found in database.", Duration = 3})
            end
        end
    end,
@@ -102,7 +105,7 @@ UniversalTab:CreateButton({Name = "Execute Infinite Yield", Callback = function(
 UniversalTab:CreateSection("Dex Explorer")
 UniversalTab:CreateButton({Name = "Execute Dex V3 Mobile", Callback = function() loadstring(game:HttpGet(ScriptDatabase["dex"]))() end})
 
--- GAMES TAB LIST
+-- 4. GAMES LIST (ATTACHED TITLE-BUTTON)
 NightsTab:CreateSection("99 Nights")
 NightsTab:CreateButton({Name = "Execute Flash Hub", Callback = function() loadstring(game:HttpGet(ScriptDatabase["99 nights"]))() end})
 
@@ -154,4 +157,4 @@ BloxFruitsTab:CreateButton({Name = "Execute Control Hub", Callback = function() 
 SettingsTab:CreateSection("Configuration")
 SettingsTab:CreateButton({Name = "Destroy Hub", Callback = function() Rayfield:Destroy() end})
 
-Rayfield:Notify({Title = "Frenox Hub", Content = "Interface loaded successfully!", Duration = 5})
+Rayfield:Notify({Title = "Frenox Hub", Content = "Professional Hub Loaded!", Duration = 5})
