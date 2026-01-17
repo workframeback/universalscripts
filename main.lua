@@ -10,12 +10,12 @@ local Player = game.Players.LocalPlayer
 local UserRole = (Player.Name == "Sevi" or Player.DisplayName == "Sevi") and "Owner" or "Member"
 
 local Window = Rayfield:CreateWindow({
-    Name = "Frenox Hub | Dark Purple Edition",
+    Name = "Frenox Hub",
     LoadingTitle = "Frenox Hub",
     LoadingSubtitle = "by Sevi",
     ConfigurationSaving = { Enabled = true, FolderName = "FrenoxHub" },
     KeySystem = false,
-    Theme = "DarkBlue" 
+    Theme = "DarkWhite" 
 })
 
 local ScriptDatabase = {
