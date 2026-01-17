@@ -15,7 +15,7 @@ local Window = Rayfield:CreateWindow({
     LoadingSubtitle = "by Sevi",
     ConfigurationSaving = { Enabled = true, FolderName = "FrenoxHub" },
     KeySystem = false,
-    Theme = "DarkPurple" 
+    Theme = "DarkBlue" 
 })
 
 local ScriptDatabase = {
